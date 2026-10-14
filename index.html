@@ -9,7 +9,8 @@
   <meta property="og:title" content="BandTalk — l’intercom de scène pour musiciens">
   <meta property="og:description" content="Vos téléphones deviennent un intercom de scène. Wi-Fi local ou 4G. Essai gratuit.">
   <meta property="og:image" content="assets/scene.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2330d158'/%3E%3Cg stroke='%23032611' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M8 13v6M12 9v14M16 6v20M20 10v12M24 13v6'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icone-192.png">
+  <link rel="apple-touch-icon" href="assets/icone-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -21,7 +22,7 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span>
+      <img class="logo" src="assets/icone-192.png" alt="" width="34" height="34">
       BandTalk
     </a>
     <nav class="nav" aria-label="Sections">
@@ -104,8 +105,8 @@
       </article>
       <article class="card">
         <div class="tile g-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
-        <h3>Studio : enregistrer et séparer les pistes</h3>
-        <p>Enregistrez vos répétitions, puis séparez voix, batterie, basse et autres instruments par intelligence artificielle, directement sur le téléphone.</p>
+        <h3>Studio : enregistrer vos répétitions</h3>
+        <p>Enregistrez une prise en haute qualité, réécoutez-la tout de suite et partagez-la avec le groupe (WhatsApp, e-mail…).</p>
       </article>
     </div>
   </div>
@@ -146,16 +147,16 @@
     <div class="download">
       <div class="dl-card">
         <p class="eyebrow">Android</p>
-        <h3>BandTalk <span data-bt="version">1.0.0</span></h3>
+        <h3>BandTalk <span data-bt="version">1.0.1</span></h3>
         <p class="muted">L’appli complète. Les mises à jour vous sont proposées dans l’appli.</p>
         <a class="btn btn-primary" id="dl-btn" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
-          <span>Télécharger l’APK (<span data-bt="taille">146</span>&nbsp;Mo)</span>
+          <span>Télécharger l’APK (<span data-bt="taille">87</span>&nbsp;Mo)</span>
         </a>
         <dl class="dl-meta">
-          <dt>Version</dt><dd data-bt="version">1.0.0</dd>
+          <dt>Version</dt><dd data-bt="version">1.0.1</dd>
           <dt>Système</dt><dd data-bt="android-min">Android 7 ou plus</dd>
-          <dt>Taille</dt><dd><span data-bt="taille">146</span> Mo — Wi-Fi conseillé</dd>
+          <dt>Taille</dt><dd><span data-bt="taille">87</span> Mo — Wi-Fi conseillé</dd>
           <dt id="hash-dt">SHA-256</dt><dd id="hash-dd" class="hash" data-bt="sha256"></dd>
         </dl>
         <p class="warn" id="dl-warn" hidden>Le lien de téléchargement n’est pas encore configuré.</p>
@@ -176,7 +177,7 @@
         </li>
         <li class="step">
           <h3>Mises à jour</h3>
-          <p>Quand une nouvelle version sort, BandTalk vous prévient. Téléchargez-la ici et installez-la par-dessus : vos réglages et enregistrements sont conservés.</p>
+          <p>Quand une nouvelle version sort, BandTalk vous prévient : touchez <b>Mettre à jour</b>, l’appli la télécharge et Android vous demande de confirmer. Vos réglages et enregistrements sont conservés. Vous pouvez aussi la télécharger ici et l’installer par-dessus.</p>
         </li>
       </ol>
     </div>
@@ -199,7 +200,7 @@
         <ul>
           <li><span>Créez <b data-bt="essais">2</b> sessions Live, avec toutes les fonctions</span></li>
           <li>Rejoindre une session : gratuit, sans limite</li>
-          <li>Studio : enregistrement et séparation des pistes</li>
+          <li>Studio : enregistrement des répétitions</li>
         </ul>
       </div>
       <div class="price pro">
@@ -235,10 +236,10 @@
     </div>
     <div class="guide">
       <details>
-        <summary>Créer son compte (ou entrer en invité)</summary>
+        <summary>Créer son compte</summary>
         <div class="detail">
           <p>À la première ouverture, choisissez <b>S’inscrire</b> : nom de scène, téléphone (celui de votre compte Wave), email et mot de passe. Le compte vous permet de garder votre abonnement, même en changeant de téléphone. Une connexion Internet est nécessaire pour cette étape.</p>
-          <p>Sur scène, sans Internet ? Touchez <b>Mode invité direct</b> pour rejoindre une session immédiatement.</p>
+          <p>Une fois connecté, BandTalk fonctionne sur scène même sans Internet (sessions en Wi-Fi local).</p>
         </div>
       </details>
       <details>
@@ -288,15 +289,10 @@
         </div>
       </details>
       <details>
-        <summary>Studio : enregistrer et séparer les pistes</summary>
+        <summary>Studio : enregistrer une répétition</summary>
         <div class="detail">
-          <p>Dans l’onglet <b>Studio</b>, enregistrez une répétition. Puis <b>Séparer les pistes (IA)</b> sur un enregistrement ou un fichier audio du téléphone (MP3, WAV, M4A…) :</p>
-          <ul>
-            <li><b>Karaoké</b> : voix + accompagnement (le plus rapide) ;</li>
-            <li><b>Complet</b> : voix, batterie, basse, autres + accompagnement ;</li>
-            <li><b>Pro</b> : la meilleure qualité, mais nettement plus lent.</li>
-          </ul>
-          <p>Le moteur se télécharge une seule fois, puis tout se fait sur le téléphone, sans Internet.</p>
+          <p>Dans l’onglet <b>Studio</b>, touchez <b>Enregistrer</b> : la prise est enregistrée en haute qualité (WAV 44,1 kHz). Réécoutez-la aussitôt, puis partagez-la avec le groupe (WhatsApp, e-mail…).</p>
+          <p>Les prises restent sur votre téléphone : rien n’est envoyé sur Internet.</p>
         </div>
       </details>
       <details>
@@ -363,7 +359,7 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="#">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span>
+      <img class="logo" src="assets/icone-192.png" alt="" width="34" height="34">
       BandTalk
     </a>
     <nav aria-label="Liens">
