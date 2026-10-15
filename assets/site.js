@@ -72,9 +72,8 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Mode jour / nuit (mémorisé sur cet appareil seulement).
+  // Mode jour / nuit (mémorisé sur cet appareil seulement ; appliqué dès le <head>).
   var root = document.documentElement;
-  try { var saved = localStorage.getItem('bt-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) { /* ignoré */ }
   var tg = document.getElementById('theme');
   if (tg) {
     tg.addEventListener('click', function () {
@@ -84,5 +83,51 @@
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('bt-theme', next); } catch (e) { /* ignoré */ }
     });
+  }
+
+  // Tutoriel : onglets accessibles (clic, flèches, Début, Fin).
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var select = function (tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus();
+  };
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t, false); });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, n = tabs.length, j = -1;
+      if (k === 'ArrowRight') j = (i + 1) % n;
+      else if (k === 'ArrowLeft') j = (i - 1 + n) % n;
+      else if (k === 'Home') j = 0;
+      else if (k === 'End') j = n - 1;
+      if (j >= 0) { e.preventDefault(); select(tabs[j], true); }
+    });
+  });
+  // Lien direct vers un onglet : …#tutoriel-wifi ou …#tutoriel-4g
+  var h = location.hash.replace('#tutoriel-', '');
+  var direct = document.getElementById('tab-' + h);
+  if (direct && location.hash.indexOf('#tutoriel-') === 0) {
+    select(direct, false);
+    var sec = document.getElementById('tutoriel');
+    if (sec) sec.scrollIntoView();
+  }
+
+  // Apparition douce des blocs au défilement (désactivée si « réduire les animations »).
+  var items = document.querySelectorAll('.reveal');
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window) || still) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
   }
 })();

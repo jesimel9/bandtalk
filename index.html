@@ -1,57 +1,60 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BandTalk — l’intercom de scène pour musiciens | par Jesimel</title>
-  <meta name="description" content="BandTalk, l’appli Android créée par Jesimel : parlez à votre groupe pendant le concert avec vos téléphones et des écouteurs. Wi-Fi local sans Internet ou 4G. Téléchargement gratuit, 2 sessions d’essai, puis abonnement par Wave.">
-  <meta name="author" content="Jesimel">
+  <meta name="description" content="BandTalk, l’appli Android créée par Jesimel : parlez à votre groupe pendant le concert avec vos téléphones et des écouteurs. Wi-Fi local sans Internet ou 4G. Tutoriel en images, téléchargement gratuit, 2 sessions d’essai, puis abonnement par Wave.">
+  <meta name="author" content="Yao Kouassi Jean Jesimel">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://jesimel9.github.io/bandtalk/">
-  <meta name="theme-color" content="#0a0e13">
+  <meta name="theme-color" content="#06080b">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="BandTalk">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://jesimel9.github.io/bandtalk/">
   <meta property="og:title" content="BandTalk — l’intercom de scène pour musiciens">
-  <meta property="og:description" content="Vos téléphones deviennent un intercom de scène. Wi-Fi local ou 4G. Essai gratuit. Une appli de Jesimel.">
-  <meta property="og:image" content="https://jesimel9.github.io/bandtalk/assets/scene.jpg">
+  <meta property="og:description" content="Vos téléphones deviennent un intercom de scène. Wi-Fi local ou 4G. Essai gratuit. Une appli de Jesimel, faite en Côte d’Ivoire.">
+  <meta property="og:image" content="https://jesimel9.github.io/bandtalk/assets/partage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">[
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "BandTalk",
-    "alternateName": [
-      "Band Talk",
-      "BandTalk par Jesimel"
-    ],
+    "alternateName": ["Band Talk", "BandTalk par Jesimel"],
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Android 7 ou plus récent",
+    "softwareVersion": "1.0.5",
     "description": "BandTalk est l’intercom de scène pour musiciens : parlez à votre groupe pendant le concert avec vos téléphones et des écouteurs, en Wi-Fi local sans Internet ou par la 4G.",
     "url": "https://jesimel9.github.io/bandtalk/",
     "downloadUrl": "https://github.com/jesimel9/bandtalk/releases/latest/download/BandTalk.apk",
     "image": "https://jesimel9.github.io/bandtalk/assets/icone-192.png",
+    "screenshot": "https://jesimel9.github.io/bandtalk/assets/captures/live.webp",
     "inLanguage": "fr",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "XOF"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Jesimel",
-      "url": "https://jesimel9.github.io/"
-    }
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "XOF" },
+    "author": { "@id": "https://jesimel9.github.io/bandtalk/#createur" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://jesimel9.github.io/bandtalk/#createur",
+    "name": "Yao Kouassi Jean Jesimel",
+    "alternateName": "Jesimel",
+    "jobTitle": "Technicien en électronique et en électricité, créateur de BandTalk",
+    "image": "https://jesimel9.github.io/bandtalk/assets/photos/createur.webp",
+    "url": "https://jesimel9.github.io/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Abidjan (Angré, Mahou)", "addressCountry": "CI" },
+    "knowsLanguage": ["fr", "en", "es"],
+    "alumniOf": { "@type": "EducationalOrganization", "name": "HETEC" }
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "BandTalk",
-    "alternateName": [
-      "Band Talk",
-      "BandTalk par Jesimel"
-    ],
+    "alternateName": ["Band Talk", "BandTalk par Jesimel"],
     "url": "https://jesimel9.github.io/bandtalk/",
     "inLanguage": "fr"
   }
@@ -61,97 +64,129 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+    // Avant l'affichage : JavaScript actif + thème mémorisé (évite un clignotement).
+    (function (r) {
+      r.className = r.className.replace('no-js', 'js');
+      try { var t = localStorage.getItem('bt-theme'); if (t) r.setAttribute('data-theme', t); } catch (e) { /* ignoré */ }
+    })(document.documentElement);
+  </script>
+  <link rel="preload" as="image" href="assets/photos/scene-percussions.webp">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/config.js"></script>
 </head>
 <body>
+<a class="skip" href="#contenu">Aller au contenu</a>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#">
-      <img class="logo" src="assets/icone-192.png" alt="" width="34" height="34">
+      <img class="logo" src="assets/icone-192.png" alt="" width="36" height="36">
       BandTalk
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#fonctions">Fonctions</a>
+      <a href="#tutoriel">Tutoriel</a>
       <a href="#telecharger">Télécharger</a>
       <a href="#tarifs">Tarifs</a>
-      <a href="#guide">Guide</a>
+      <a href="#createur">Le créateur</a>
       <a href="#faq">Questions</a>
     </nav>
+    <button class="icon-btn" type="button" id="theme" aria-label="Changer de mode : jour ou nuit">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+    </button>
     <a class="btn btn-primary btn-sm" href="#telecharger">Télécharger</a>
   </div>
 </header>
 
-<main>
+<main id="contenu">
 
 <!-- ======================= HÉROS ======================= -->
 <section class="hero">
+  <figure class="hero-bg">
+    <img src="assets/photos/scene-percussions.webp" alt="" width="1600" height="900" fetchpriority="high">
+  </figure>
   <div class="wrap">
     <div>
       <p class="eyebrow">Pour les musiciens, chefs d’orchestre et ingés son</p>
-      <h1>BandTalk, l’intercom de scène <em>dans votre téléphone.</em></h1>
+      <h1>BandTalk, l’intercom de scène <span class="grad">dans votre téléphone.</span></h1>
       <p class="lead">Parlez à tout le groupe pendant le concert, sans matériel : vos téléphones et des écouteurs suffisent. En Wi-Fi local sans Internet, ou par la 4G.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#telecharger">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
           Télécharger pour Android
         </a>
-        <a class="btn btn-ghost" href="#comment">Comment ça marche</a>
+        <a class="btn btn-ghost" href="#tutoriel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>
+          Voir le tutoriel en images
+        </a>
       </div>
-      <div class="facts">
-        <span data-bt="essais-texte">2 sessions gratuites</span>
-        <span>2 sessions d’essai gratuites</span>
-        <span data-bt="android-min">Android 7 ou plus</span>
-      </div>
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span data-bt="essais-texte">2 sessions gratuites</span> pour essayer</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-bt="android-min">Android 7 ou plus</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Fait en Côte d’Ivoire</li>
+      </ul>
     </div>
-    <figure class="stage">
-      <img src="assets/scene.jpg" alt="Un groupe sur scène, chaque musicien avec des écouteurs, reliés par la voix" width="525" height="295">
-      <figcaption>
-        <span class="chip"><i></i>Wi-Fi local</span>
-        <span class="chip"><i style="background:#0a84ff;box-shadow:0 0 10px #0a84ff"></i>4G / Internet</span>
-        <span class="chip"><i style="background:#ff9f0a;box-shadow:0 0 10px #ff9f0a"></i>Jusqu’à 8 musiciens</span>
-      </figcaption>
-    </figure>
+    <div class="hero-visual">
+      <div class="phone"><img src="assets/captures/live.webp" alt="Écran Live de BandTalk : métronome partagé, musiciens connectés et gros bouton pour parler" width="540" height="1170"></div>
+      <div class="phone second"><img src="assets/captures/wifi-inviter.webp" alt="Invitation à une session : code PIN et QR code" width="540" height="1170" loading="lazy"></div>
+      <span class="float-chip c1"><i></i>Wi-Fi local, sans Internet</span>
+      <span class="float-chip c2"><i></i>4G / Internet</span>
+      <span class="float-chip c3"><i></i>Jusqu’à 8 musiciens</span>
+    </div>
   </div>
+  <p class="photo-note">Photo d’illustration</p>
 </section>
+
+<!-- ======================= POUR QUI ======================= -->
+<div class="who" aria-label="Pour qui">
+  <div class="wrap">
+    <p>Pensé pour :</p>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Groupes live</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6M9 5h6M5 22V12l7-4 7 4v10M10 22v-5h4v5"/></svg>Louange et chorales</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Ingés son</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 15a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2z"/></svg>Répétitions</span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>Chefs d’orchestre</span>
+  </div>
+</div>
 
 <!-- ======================= FONCTIONS ======================= -->
 <section id="fonctions">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Fonctions</p>
       <h2>Tout ce qu’il faut pour jouer ensemble.</h2>
       <p class="muted">BandTalk remplace l’intercom et les gestes de scène par vos téléphones, avec un son clair et un très faible délai.</p>
     </div>
     <div class="grid grid-3">
-      <article class="card">
-        <div class="tile g-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+      <article class="card reveal">
+        <div class="tile g-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
         <h3>Intercom en temps réel</h3>
         <p>Appui pour parler ou micro ouvert. Anti-écho, anti-bruit, et une « portée du micro » qui ne transmet que la voix proche du téléphone.</p>
       </article>
-      <article class="card">
-        <div class="tile g-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1.2" fill="currentColor"/></svg></div>
+      <article class="card reveal">
+        <div class="tile g-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1.2" fill="currentColor"/></svg></div>
         <h3>Wi-Fi local, sans Internet</h3>
         <p>Un téléphone crée la session, les autres scannent son QR code. Fonctionne avec un routeur ou le partage de connexion du chef, même sans forfait.</p>
       </article>
-      <article class="card">
-        <div class="tile g-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+      <article class="card reveal">
+        <div class="tile g-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
         <h3>Mode Internet / 4G</h3>
         <p>Quand il n’y a pas de Wi-Fi commun : la session passe par Internet, avec suppression de bruit par intelligence artificielle.</p>
       </article>
-      <article class="card">
-        <div class="tile g-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div>
+      <article class="card reveal">
+        <div class="tile g-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div>
         <h3>Signaux de scène</h3>
         <p>Refrain, fin, alerte son… Un signal s’affiche en plein écran sur tous les téléphones, avec le décompte « one, two, three, four » calé sur le temps.</p>
       </article>
-      <article class="card">
-        <div class="tile g-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l3 18H6L9 3zM12 14l5-7"/></svg></div>
+      <article class="card reveal">
+        <div class="tile g-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l3 18H6L9 3zM12 14l5-7"/></svg></div>
         <h3>Métronome partagé</h3>
         <p>Le même clic, au même moment, dans les oreilles de tout le groupe.</p>
       </article>
-      <article class="card">
-        <div class="tile g-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
+      <article class="card reveal">
+        <div class="tile g-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
         <h3>Studio : enregistrer vos répétitions</h3>
         <p>Enregistrez une prise en haute qualité, réécoutez-la tout de suite et partagez-la avec le groupe (WhatsApp, e-mail…).</p>
       </article>
@@ -159,56 +194,172 @@
   </div>
 </section>
 
-<!-- ======================= COMMENT ÇA MARCHE ======================= -->
-<section id="comment" style="padding-top:24px">
+<!-- ======================= SUR SCÈNE (photos) ======================= -->
+<section id="scene" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Comment ça marche</p>
-      <h2>Prêts en une minute.</h2>
+    <div class="section-head reveal">
+      <p class="eyebrow">Sur scène</p>
+      <h2>Chacun s’entend, tout le monde suit.</h2>
+      <p class="muted">Guitare, voix, percussions, cuivres, louange… Avec BandTalk, le chef parle à tout le groupe ou à une seule section, sans quitter son instrument.</p>
     </div>
-    <ol class="steps row" style="list-style:none;padding:0;margin:0">
-      <li class="step">
-        <h3>Le chef crée la session</h3>
-        <p>Touchez <span class="kbd">Créer une session</span>, choisissez Wi-Fi local ou Internet. Un QR code et un code PIN s’affichent.</p>
-      </li>
-      <li class="step">
-        <h3>Les musiciens rejoignent</h3>
-        <p>Touchez <span class="kbd">Rejoindre</span> et scannez le QR code, ou tapez le PIN. Chacun dispose de 2 sessions d’essai gratuites.</p>
-      </li>
-      <li class="step">
-        <h3>Écouteurs, et on joue</h3>
-        <p>Chacun règle le volume de chaque musicien. Parlez, envoyez des signaux, lancez le métronome.</p>
-      </li>
-    </ol>
+    <div class="gallery reveal">
+      <figure class="tall"><img src="assets/photos/scene-guitariste.webp" alt="Un guitariste chante sur une scène éclairée en violet" width="960" height="1200" loading="lazy"><figcaption>Guitare et voix</figcaption></figure>
+      <figure><img src="assets/photos/percussionniste.webp" alt="Un percussionniste joue des congas sur scène" width="1000" height="667" loading="lazy"><figcaption>Percussions</figcaption></figure>
+      <figure><img src="assets/photos/louange.webp" alt="Un groupe de louange chante au micro" width="1000" height="667" loading="lazy"><figcaption>Louange</figcaption></figure>
+      <figure class="tall"><img src="assets/photos/chanteurs.webp" alt="Deux chanteurs en tenue traditionnelle chantent au micro" width="800" height="1000" loading="lazy"><figcaption>Chœurs</figcaption></figure>
+      <figure class="wide"><img src="assets/photos/repetition.webp" alt="Un groupe de jeunes musiciens se produit sur scène" width="1000" height="667" loading="lazy"><figcaption>Répétition</figcaption></figure>
+      <figure class="tall"><img src="assets/photos/batteur.webp" alt="Un batteur joue lors d’un concert en plein air" width="800" height="1000" loading="lazy"><figcaption>Batterie</figcaption></figure>
+      <figure><img src="assets/photos/ecouteur.webp" alt="Un musicien porte un écouteur dans l’oreille" width="800" height="1000" loading="lazy"><figcaption>Écouteurs</figcaption></figure>
+      <div class="yours">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--brand-text)"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        <strong>Votre groupe ici ?</strong>
+        <p>Vous jouez avec BandTalk ? Envoyez-nous vos photos de concert.</p>
+        <a href="https://wa.me/2250797361516">Envoyer par WhatsApp</a>
+      </div>
+      <figure class="tall tall-d"><img src="assets/photos/saxophone.webp" alt="Un saxophoniste joue lors d’un festival" width="800" height="1000" loading="lazy"><figcaption>Cuivres</figcaption></figure>
+      <figure class="wide-d"><img src="assets/photos/groupe-de-dos.webp" alt="Un groupe joue sur une grande scène, vu depuis l’arrière" width="1200" height="800" loading="lazy"><figcaption>Grande scène</figcaption></figure>
+    </div>
+    <p class="credit">Photos d’illustration (Unsplash, licence libre) : elles montrent des musiciens sur scène, pas des utilisateurs de BandTalk.</p>
+  </div>
+</section>
+
+<!-- ======================= TUTORIEL ======================= -->
+<section id="tutoriel" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Tutoriel en images</p>
+      <h2>BandTalk pas à pas.</h2>
+      <p class="muted">Les vrais écrans de l’appli, dans l’ordre. Choisissez une rubrique : la connexion, le mode Wi-Fi local (sans Internet), ou le mode 4G / Internet.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Rubriques du tutoriel">
+      <button class="tab" type="button" role="tab" id="tab-connexion" aria-controls="panel-connexion" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        1. Connexion
+      </button>
+      <button class="tab" type="button" role="tab" id="tab-wifi" aria-controls="panel-wifi" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1.2" fill="currentColor"/></svg>
+        2. Wi-Fi local
+      </button>
+      <button class="tab" type="button" role="tab" id="tab-4g" data-net="4g" aria-controls="panel-4g" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-4M10 20v-8M15 20v-12M20 20V4"/></svg>
+        3. 4G / Internet
+      </button>
+    </div>
+
+    <!-- 1. Connexion -->
+    <div class="tab-panel" role="tabpanel" id="panel-connexion" aria-labelledby="tab-connexion">
+      <h3>Créer son compte et se connecter</h3>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+        <p>Il faut <b>Internet une seule fois</b>, pour créer le compte. Ensuite, BandTalk fonctionne sur scène même sans Internet (en Wi-Fi local). Votre compte garde votre abonnement, même si vous changez de téléphone.</p>
+      </div>
+      <ol class="shots">
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/connexion.webp" alt="Écran de connexion : bouton Continuer avec Google, e-mail et mot de passe" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Ouvrez BandTalk</h4><p>Touchez <span class="kbd">Continuer avec Google</span> (le plus simple), ou entrez votre e-mail et votre mot de passe si vous avez déjà un compte.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/inscription.webp" alt="Formulaire d’inscription : nom de scène, téléphone Wave, e-mail et mot de passe" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Ou créez un compte</h4><p>Onglet <span class="kbd">S’inscrire</span> : votre nom de scène, votre numéro <b>Wave</b> (pour reconnaître vos paiements), votre e-mail et un mot de passe.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/accueil.webp" alt="Accueil de BandTalk : boutons Créer une session et Rejoindre" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Vous êtes à l’accueil</h4><p>Deux gros boutons : <span class="kbd">Créer une session</span> pour le chef, <span class="kbd">Rejoindre</span> pour les musiciens. Choisissez ensuite le Wi-Fi local ou la 4G.</p></div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- 2. Wi-Fi local -->
+    <div class="tab-panel" role="tabpanel" id="panel-wifi" aria-labelledby="tab-wifi" hidden>
+      <h3>Session en Wi-Fi local, sans Internet</h3>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1.2" fill="currentColor"/></svg>
+        <p>C’est le mode <b>le plus réactif</b>. Tous les téléphones doivent être sur le <b>même Wi-Fi</b> : un routeur (idéalement en 5 GHz), ou le <b>partage de connexion</b> du téléphone du chef. Pas besoin de forfait Internet : seul le Wi-Fi sert.</p>
+      </div>
+      <ol class="shots">
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/wifi-creer.webp" alt="Création d’une session : nom Concert du samedi, réseau Wi-Fi sélectionné" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Le chef crée la session</h4><p><span class="kbd">Créer une session</span> › donnez-lui un nom › choisissez <b>Wi-Fi</b> › <span class="kbd">Lancer la session</span>.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/wifi-inviter.webp" alt="Invitation : code PIN à 6 chiffres et QR code, même Wi-Fi obligatoire" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Il invite les musiciens</h4><p>Touchez <span class="kbd">Inviter</span> : un <b>QR code</b> et un <b>code PIN</b> à 6 chiffres s’affichent. Montrez-les au groupe, ou partagez l’invitation par WhatsApp.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/rejoindre-wifi.webp" alt="Écran Rejoindre en Wi-Fi local : scanner le QR code ou taper le code PIN" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Les musiciens rejoignent</h4><p><span class="kbd">Rejoindre</span> › <b>Wi-Fi local</b> › scannez le QR code, ou tapez le PIN puis <span class="kbd">Entrer</span>. La session apparaît aussi toute seule dans « À proximité ».</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/live.webp" alt="Écran Live : métronome, musiciens connectés et bouton Maintenir pour parler" width="540" height="1170" loading="lazy"></div>
+          <div><h4>On joue !</h4><p>Maintenez le gros bouton <span class="kbd">MAINTENIR</span> pour parler (ou passez en « Mains libres »). Lancez le métronome : tout le monde entend le même clic.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/signaux.webp" alt="Signaux de scène : Solo, Refrain, Break, Reprise, plus fort, moins fort, Alerte son, Stop" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Envoyez un signal</h4><p>Plus bas dans l’écran Live : <b>Solo, Refrain, Break, Reprise, Stop…</b> Un toucher suffit, à tout le groupe ou à une seule section.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/signal.webp" alt="Signal Refrain affiché en plein écran avec le décompte GO" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Tout le groupe le voit</h4><p>Le signal s’affiche en plein écran sur chaque téléphone, avec un décompte calé sur le temps, jusqu’au « GO ».</p></div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- 3. 4G / Internet -->
+    <div class="tab-panel" role="tabpanel" id="panel-4g" data-net="4g" aria-labelledby="tab-4g" hidden>
+      <h3>Session par Internet (4G ou 5G)</h3>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        <p>Quand les musiciens ne sont <b>pas sur le même Wi-Fi</b>, ou sont loin les uns des autres. Chaque téléphone a besoin d’Internet (4G, 5G ou n’importe quel Wi-Fi). La voix passe par des serveurs : le délai est un peu plus grand qu’en Wi-Fi local.</p>
+      </div>
+      <ol class="shots">
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/4g-creer.webp" alt="Création d’une session : réseau 4G / 5G sélectionné" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Choisissez « 4G / 5G »</h4><p><span class="kbd">Créer une session</span> › un nom › touchez <b>4G / 5G</b> › <span class="kbd">Lancer la session</span>. Quelques secondes suffisent pour l’ouvrir.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/4g-inviter.webp" alt="Invitation à une session Internet : code et QR code" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Partagez le code</h4><p><span class="kbd">Inviter</span> affiche « Session Internet », le code et le QR code. Le plus pratique à distance : <span class="kbd">Partager l’invitation</span> par WhatsApp.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/rejoindre-internet.webp" alt="Écran Rejoindre en mode Internet : scanner le QR code ou taper le code" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Les musiciens rejoignent</h4><p><span class="kbd">Rejoindre</span> › onglet <b>Internet</b> › scannez le QR code ou tapez le code, puis <span class="kbd">Entrer</span>.</p></div>
+        </li>
+        <li class="shot">
+          <div class="phone"><img src="assets/captures/4g-live.webp" alt="Écran Live d’une session Internet" width="540" height="1170" loading="lazy"></div>
+          <div><h4>Même écran Live</h4><p>Parler, métronome, signaux, volume de chacun : tout fonctionne comme en Wi-Fi local. Pour un meilleur son, utilisez des <b>écouteurs filaires</b>.</p></div>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
 <!-- ======================= TÉLÉCHARGER ======================= -->
 <section id="telecharger">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Télécharger</p>
       <h2>Installer BandTalk sur Android.</h2>
       <p class="muted">BandTalk se télécharge ici, directement (pas sur le Play Store). L’installation prend deux minutes.</p>
     </div>
     <div class="download">
-      <div class="dl-card">
+      <div class="dl-card reveal">
         <p class="eyebrow">Android</p>
-        <h3>BandTalk <span data-bt="version">1.0.4</span></h3>
+        <h3>BandTalk <span data-bt="version">1.0.5</span></h3>
         <p class="muted">L’appli complète. Les mises à jour vous sont proposées dans l’appli.</p>
         <a class="btn btn-primary" id="dl-btn" href="#">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
           <span>Télécharger l’APK (<span data-bt="taille">86</span>&nbsp;Mo)</span>
         </a>
         <dl class="dl-meta">
-          <dt>Version</dt><dd data-bt="version">1.0.4</dd>
+          <dt>Version</dt><dd data-bt="version">1.0.5</dd>
           <dt>Système</dt><dd data-bt="android-min">Android 7 ou plus</dd>
           <dt>Taille</dt><dd><span data-bt="taille">86</span> Mo — Wi-Fi conseillé</dd>
           <dt id="hash-dt">SHA-256</dt><dd id="hash-dd" class="hash" data-bt="sha256"></dd>
         </dl>
         <p class="warn" id="dl-warn" hidden>Le lien de téléchargement n’est pas encore configuré.</p>
       </div>
-      <ol class="steps" style="list-style:none;padding:0;margin:0">
+      <ol class="steps reveal">
         <li class="step">
           <h3>Téléchargez le fichier</h3>
           <p>Touchez le bouton vert depuis le téléphone Android. Le fichier <b>BandTalk.apk</b> arrive dans vos téléchargements.</p>
@@ -224,7 +375,7 @@
         </li>
         <li class="step">
           <h3>Mises à jour</h3>
-          <p>Quand une nouvelle version sort, BandTalk vous prévient : touchez <b>Mettre à jour</b>, l’appli la télécharge et Android vous demande de confirmer. Vos réglages et enregistrements sont conservés. Vous pouvez aussi la télécharger ici et l’installer par-dessus.</p>
+          <p>Quand une nouvelle version sort, BandTalk vous prévient : touchez <b>Mettre à jour</b>, l’appli la télécharge et Android vous demande de confirmer. Vos réglages et enregistrements sont conservés.</p>
         </li>
       </ol>
     </div>
@@ -232,15 +383,15 @@
 </section>
 
 <!-- ======================= TARIFS ======================= -->
-<section id="tarifs">
+<section id="tarifs" style="padding-top:24px">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Tarifs</p>
       <h2>Essayez gratuitement. Payez en une minute, par Wave.</h2>
-      <p class="muted">Chaque musicien a droit à 2 sessions d’essai gratuites, qu’il crée ou qu’il rejoigne la session. Ensuite, un petit abonnement par Wave.</p>
+      <p class="muted">Chaque musicien a droit à <span data-bt="essais-texte">2 sessions gratuites</span> d’essai, qu’il crée ou qu’il rejoigne la session. Ensuite, un petit abonnement par Wave.</p>
     </div>
     <div class="prices">
-      <div class="price">
+      <div class="price reveal">
         <p class="eyebrow">Essai gratuit</p>
         <p class="amount">0 FCFA</p>
         <p class="muted">Sans carte, sans engagement.</p>
@@ -250,10 +401,10 @@
           <li>Studio : enregistrement des répétitions</li>
         </ul>
       </div>
-      <div class="price pro">
+      <div class="price pro reveal">
         <p class="eyebrow">BandTalk PRO</p>
         <p class="amount"><span data-bt="prix">2 000</span> FCFA <small>/ <span data-bt="duree">30</span> jours</small></p>
-        <p class="muted">Pour le chef d’orchestre, le leader ou l’ingé son.</p>
+        <p class="muted">Pour le chef d’orchestre, le leader, l’ingé son… et chaque musicien après l’essai.</p>
         <ul>
           <li>Sessions Live illimitées, Wi-Fi local ou Internet</li>
           <li>Jusqu’à 8 musiciens par session</li>
@@ -266,139 +417,191 @@
             <li>L’appli Wave s’ouvre avec le montant déjà rempli : <b>confirmez</b>.</li>
             <li>Revenez dans BandTalk : votre abonnement est <b>activé automatiquement</b>, en quelques secondes.</li>
           </ol>
-          <p class="muted" style="font-size:14px;margin-top:12px">Paiement par transfert aussi possible au <strong data-bt="wave" style="color:var(--text)">+225 07 97 36 15 16</strong> <button class="btn btn-ghost btn-sm" type="button" id="copy-wave" style="min-height:32px;padding:0 10px;margin-left:4px">Copier</button> (activation après vérification).</p>
+          <p class="muted" style="font-size:14px;margin-top:12px">Paiement par transfert aussi possible au <strong data-bt="wave" style="color:var(--text)">+225 07 97 36 15 16</strong> <button class="btn btn-ghost copy" type="button" id="copy-wave">Copier</button> (activation après vérification).</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= GUIDE ======================= -->
-<section id="guide">
+<!-- ======================= LE CRÉATEUR ======================= -->
+<section id="createur" class="creator">
   <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Guide d’utilisation</p>
-      <h2>Bien utiliser BandTalk.</h2>
-      <p class="muted">Touchez une rubrique pour l’ouvrir.</p>
+    <div class="section-head reveal">
+      <p class="eyebrow">À propos du créateur</p>
+      <h2>Une appli pensée et construite à Abidjan.</h2>
+      <p class="muted">BandTalk est l’œuvre de Jesimel, technicien en électronique et en électricité. Voici son parcours.</p>
     </div>
-    <div class="guide">
-      <details>
-        <summary>Créer son compte</summary>
-        <div class="detail">
-          <p>À la première ouverture, touchez <b>Continuer avec Google</b> (le plus simple), ou choisissez <b>S’inscrire</b> : nom de scène, téléphone (celui de votre compte Wave), email et mot de passe. Le compte vous permet de garder votre abonnement, même en changeant de téléphone. Une connexion Internet est nécessaire pour cette étape.</p>
-          <p>Avec Google, BandTalk vous demande ensuite votre numéro Wave : il sert à reconnaître vos paiements automatiquement.</p>
-          <p>Une fois connecté, BandTalk fonctionne sur scène même sans Internet (sessions en Wi-Fi local).</p>
+    <div class="creator-grid">
+      <aside class="profile reveal">
+        <div class="avatar"><img src="assets/photos/createur.webp" alt="Portrait de Yao Kouassi Jean Jesimel" width="480" height="480" loading="lazy"></div>
+        <h3>Yao Kouassi Jean Jesimel</h3>
+        <p class="role">Créateur de BandTalk</p>
+        <div class="tags">
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Angré (Mahou), Abidjan</span>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>28 ans</span>
         </div>
-      </details>
-      <details>
-        <summary>Créer une session en Wi-Fi local (sans Internet)</summary>
-        <div class="detail">
-          <p>C’est le mode le plus réactif. Tous les téléphones doivent être sur le <b>même Wi-Fi</b> :</p>
-          <ul>
-            <li>un routeur Wi-Fi (idéalement en 5 GHz),</li>
-            <li>ou le <b>partage de connexion</b> du téléphone du chef (pas besoin de forfait Internet : seul le Wi-Fi sert).</li>
-          </ul>
-          <p>Touchez <b>Créer une session</b>, donnez-lui un nom, choisissez <b>Wi-Fi local</b>. Le QR code et le PIN s’affichent : montrez-les aux musiciens.</p>
+        <p class="bio">Technicien en électronique et en électricité, Jesimel a conçu BandTalk pour que les musiciens se parlent sur scène avec un simple téléphone et des écouteurs.</p>
+        <div class="contact-list">
+          <a href="https://wa.me/2250797361516">
+            <span class="tile g-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/></svg></span>
+            <span>WhatsApp<small>+225 07 97 36 15 16</small></span>
+          </a>
+          <a href="tel:+2250997361516">
+            <span class="tile g-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>
+            <span>Téléphone<small>+225 09 97 36 15 16</small></span>
+          </a>
+          <a href="mailto:yjesimel4@gmail.com?subject=BandTalk">
+            <span class="tile g-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span>
+            <span>E-mail<small>yjesimel4@gmail.com</small></span>
+          </a>
         </div>
-      </details>
-      <details>
-        <summary>Rejoindre une session</summary>
-        <div class="detail">
-          <ul>
-            <li><b>QR code</b> : Rejoindre › Scanner le QR code du chef.</li>
-            <li><b>À proximité</b> : la session apparaît toute seule sur l’accueil quand vous êtes sur le même Wi-Fi.</li>
-            <li><b>PIN</b> : tapez les chiffres affichés chez le chef.</li>
-            <li>Rien n’apparaît ? Sur le téléphone du chef : écran Live › <b>Inviter</b> › adresse et port, puis <b>Connexion manuelle</b> chez vous.</li>
-          </ul>
-          <p>Chaque session rejointe compte dans vos 2 sessions d’essai gratuites ; ensuite, l’abonnement est nécessaire.</p>
+      </aside>
+
+      <div class="cv">
+        <div class="cv-block reveal">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Expériences professionnelles</h3>
+          <ol class="timeline">
+            <li><span class="when">2025</span><strong>Rayoniste testeur de drone</strong></li>
+            <li><span class="when">2025</span><strong>Conseiller client</strong><span class="where">Concentrix</span></li>
+            <li><span class="when">2024</span><strong>Électricien industriel</strong><span class="where">Azito et OM</span></li>
+            <li><span class="when">2023</span><strong>Technicien caméra (maintenance)</strong><span class="where">Eburnie Groupe Consulting</span></li>
+            <li><span class="when">2022</span><strong>Stagiaire électricien</strong><span class="where">CIE · DUTAG de Vridi</span></li>
+            <li><span class="when">Depuis 2019</span><strong>Technicien antenniste</strong><span class="where">Canal+ / StarTimes</span></li>
+          </ol>
         </div>
-      </details>
-      <details>
-        <summary>Session par Internet (4G)</summary>
-        <div class="detail">
-          <p>Quand les musiciens ne sont pas sur le même Wi-Fi : créez la session en choisissant <b>Internet</b>. Les autres scannent le QR code. Chaque téléphone a besoin d’Internet (4G ou Wi-Fi), et la voix passe par des serveurs, avec un délai un peu plus grand qu’en Wi-Fi local.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Pendant le concert : parler, signaux, métronome</summary>
-        <div class="detail">
-          <ul>
-            <li><b>Parler</b> : maintenez le gros bouton, ou passez en micro ouvert.</li>
-            <li><b>Volume de chacun</b> : réglez le volume de chaque musicien dans l’écran Live.</li>
-            <li><b>Signaux</b> : un toucher envoie le signal en plein écran à tout le groupe, avec un décompte vocal calé sur le prochain temps fort. Un toucher sur le plein écran le ferme.</li>
-            <li><b>Métronome</b> : le même clic pour tout le monde ; son volume est partagé.</li>
-          </ul>
-        </div>
-      </details>
-      <details>
-        <summary>Portée du micro : ne transmettre que votre voix</summary>
-        <div class="detail">
-          <p>Dans <b>Réglages › Portée du micro</b> (1,5 m par défaut), BandTalk coupe ce qui vient de loin : batterie, ampli, public. Faites une fois <b>Calibrer ma voix</b> : téléphone ou micro du casque à sa place habituelle, parlez normalement 5 secondes. Recommencez si vous changez de casque.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Studio : enregistrer une répétition</summary>
-        <div class="detail">
-          <p>Dans l’onglet <b>Studio</b>, touchez <b>Enregistrer</b> : la prise est enregistrée en haute qualité (WAV 44,1 kHz). Réécoutez-la aussitôt, puis partagez-la avec le groupe (WhatsApp, e-mail…).</p>
-          <p>Les prises restent sur votre téléphone : rien n’est envoyé sur Internet.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Conseils pour un son sans délai</summary>
-        <div class="detail">
-          <ul>
-            <li><b>Écouteurs filaires</b> : un casque Bluetooth ajoute un délai (150 à 250 ms) et de l’écho.</li>
-            <li>Routeur en <b>5 GHz</b>, placé près de la scène.</li>
-            <li>Appui-pour-parler tant que tout le monde n’a pas d’écouteurs.</li>
-            <li>Écran Live › menu ⋮ › <b>Diagnostic réseau</b> : un ping sous 10 ms signifie un Wi-Fi sain.</li>
+        <div class="cv-block reveal">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/></svg>Formations</h3>
+          <ol class="timeline violet">
+            <li><span class="when">2022</span><strong>Licence Pro Génie Électrique et Électronique (GEE)</strong><span class="where">HETEC</span><span class="what">Systèmes électroniques, information et électricité industrielle.</span></li>
+            <li><span class="when">Depuis 2019</span><strong>BTS Système Électronique et Informatique</strong><span class="where">HETEC</span><span class="what">Maintenance informatique et architecture des ordinateurs.</span></li>
+            <li><span class="when">Baccalauréat</span><strong>BAC F2 (électronique)</strong><span class="where">FUSOS Cours Sociaux</span><span class="what">Étude des composants électroniques et conception.</span></li>
+          </ol>
+          <h3 class="sub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6.5 8M11 5c-.5 3.5-3 7-7 9"/><path d="M13 21l4-9 4 9M14.5 18h5"/></svg>Langues</h3>
+          <dl class="langs">
+            <div><dt>Français</dt><dd class="bar"><i style="width:100%"></i></dd><dd>Courant</dd></div>
+            <div><dt>Anglais</dt><dd class="bar"><i style="width:60%"></i></dd><dd>Intermédiaire</dd></div>
+            <div><dt>Espagnol</dt><dd class="bar"><i style="width:30%"></i></dd><dd>Niveau scolaire</dd></div>
+          </dl>
+          <h3 class="sub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>Qualités</h3>
+          <ul class="qualities">
+            <li>Esprit d’équipe</li>
+            <li>Rigoureux</li>
+            <li>Organisé</li>
           </ul>
         </div>
-      </details>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= FAQ ======================= -->
-<section id="faq" style="padding-top:24px">
-  <div class="wrap">
-    <div class="section-head">
+<!-- ======================= GUIDE & FAQ ======================= -->
+<section id="faq">
+  <div class="wrap two-col">
+    <div id="guide" class="reveal">
+      <p class="eyebrow">Guide</p>
+      <h2>Bien utiliser BandTalk.</h2>
+      <div class="guide">
+        <details>
+          <summary>Pendant le concert : parler, signaux, métronome</summary>
+          <div class="detail">
+            <ul>
+              <li><b>Parler</b> : maintenez le gros bouton, ou passez en micro ouvert (« Mains libres »).</li>
+              <li><b>Volume de chacun</b> : réglez le volume de chaque musicien dans l’écran Live.</li>
+              <li><b>Signaux</b> : un toucher envoie le signal en plein écran à tout le groupe, avec un décompte vocal calé sur le prochain temps fort. Un toucher sur le plein écran le ferme.</li>
+              <li><b>Métronome</b> : le même clic pour tout le monde ; son volume est partagé.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Rien n’apparaît en Wi-Fi local ?</summary>
+          <div class="detail">
+            <p>Vérifiez que tous les téléphones sont sur le <b>même Wi-Fi</b>. Sinon, sur le téléphone du chef : écran Live › <b>Inviter</b> › notez l’adresse et le port, puis chez le musicien : Rejoindre › <b>Connexion manuelle (adresse IP)</b>.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Portée du micro : ne transmettre que votre voix</summary>
+          <div class="detail">
+            <p>Dans <b>Réglages › Portée du micro</b> (1,5 m par défaut), BandTalk coupe ce qui vient de loin : batterie, ampli, public. Faites une fois <b>Calibrer ma voix</b> : téléphone ou micro du casque à sa place habituelle, parlez normalement 5 secondes. Recommencez si vous changez de casque.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Studio : enregistrer une répétition</summary>
+          <div class="detail">
+            <p>Dans l’onglet <b>Studio</b>, touchez <b>Enregistrer</b> : la prise est enregistrée en haute qualité (WAV 44,1 kHz). Réécoutez-la aussitôt, puis partagez-la avec le groupe (WhatsApp, e-mail…).</p>
+            <p>Les prises restent sur votre téléphone : rien n’est envoyé sur Internet.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Conseils pour un son sans délai</summary>
+          <div class="detail">
+            <ul>
+              <li><b>Écouteurs filaires</b> : un casque Bluetooth ajoute un délai (150 à 250 ms) et de l’écho.</li>
+              <li>Routeur en <b>5 GHz</b>, placé près de la scène.</li>
+              <li>Appui-pour-parler tant que tout le monde n’a pas d’écouteurs.</li>
+              <li>Écran Live › menu ⋮ › <b>Diagnostic réseau</b> : un ping sous 10 ms signifie un Wi-Fi sain.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="reveal">
       <p class="eyebrow">Questions fréquentes</p>
       <h2>Vous vous demandez…</h2>
+      <div class="guide">
+        <details>
+          <summary>Faut-il Internet pour utiliser BandTalk ?</summary>
+          <div class="detail"><p>Non pour jouer en Wi-Fi local : un Wi-Fi commun suffit, même sans connexion Internet. Internet est nécessaire pour créer votre compte, payer l’abonnement, et pour les sessions en mode 4G / Internet.</p></div>
+        </details>
+        <details>
+          <summary>Combien de musiciens par session ?</summary>
+          <div class="detail"><p>Jusqu’à 8 téléphones par session.</p></div>
+        </details>
+        <details>
+          <summary>Qui doit payer ?</summary>
+          <div class="detail"><p>Chaque utilisateur, qu’il <b>crée</b> ou qu’il <b>rejoigne</b> les sessions, après ses <span data-bt="essais">2</span> sessions d’essai gratuites.</p>
+            <p>L’essai gratuit est lié au <b>téléphone</b> : désinstaller puis réinstaller BandTalk, ou créer un autre compte, ne redonne pas de sessions gratuites. Une connexion à Internet est nécessaire une première fois pour activer l’essai.</p></div>
+        </details>
+        <details>
+          <summary>J’ai payé par Wave : quand mon abonnement est-il activé ?</summary>
+          <div class="detail"><p>Avec le bouton <b>Payer avec Wave</b> de l’appli : revenez simplement dans BandTalk, l’abonnement s’active tout seul en quelques secondes. Par transfert au numéro Wave : dans <b>Compte › Abonnement</b>, saisissez l’identifiant de la transaction ; l’activation se fait après vérification, en général en moins de 24 h.</p></div>
+        </details>
+        <details>
+          <summary>Et si mon abonnement se termine pendant un concert ?</summary>
+          <div class="detail"><p>Une session déjà ouverte continue normalement. BandTalk vous prévient 3 jours avant la fin.</p></div>
+        </details>
+        <details>
+          <summary>Pourquoi BandTalk n’est-il pas sur le Play Store ?</summary>
+          <div class="detail"><p>Pour l’instant, BandTalk est distribué directement sur ce site. C’est pourquoi Android demande d’autoriser l’installation (voir « Télécharger »). Téléchargez BandTalk uniquement depuis ce site.</p></div>
+        </details>
+        <details>
+          <summary>Et sur iPhone ?</summary>
+          <div class="detail"><p>BandTalk fonctionne pour l’instant uniquement sur Android.</p></div>
+        </details>
+        <details>
+          <summary>Quelles données sont collectées ?</summary>
+          <div class="detail"><p>Votre compte (nom, e-mail, téléphone), des statistiques d’utilisation (fréquence, durée, sessions créées) et, seulement si vous l’acceptez, votre ville. Votre position exacte, vos conversations et vos enregistrements ne sont jamais enregistrés par BandTalk. Tout est expliqué dans la <a href="confidentialite.html">politique de confidentialité</a>.</p></div>
+        </details>
+      </div>
     </div>
-    <div class="guide">
-      <details>
-        <summary>Faut-il Internet pour utiliser BandTalk ?</summary>
-        <div class="detail"><p>Non pour jouer en Wi-Fi local : un Wi-Fi commun suffit, même sans connexion Internet. Internet est nécessaire pour créer votre compte, payer l’abonnement, et pour les sessions en mode Internet.</p></div>
-      </details>
-      <details>
-        <summary>Combien de musiciens par session ?</summary>
-        <div class="detail"><p>Jusqu’à 8 téléphones par session.</p></div>
-      </details>
-      <details>
-        <summary>Qui doit payer ?</summary>
-        <div class="detail"><p>Chaque utilisateur, qu’il <b>crée</b> ou qu’il <b>rejoigne</b> les sessions, après ses <span data-bt="essais">2</span> sessions d’essai gratuites.</p>
-          <p>L’essai gratuit est lié au <b>téléphone</b> : désinstaller puis réinstaller BandTalk, ou créer un autre compte, ne redonne pas de sessions gratuites. Une connexion à Internet est nécessaire une première fois pour activer l’essai.</p></div>
-      </details>
-      <details>
-        <summary>J’ai payé par Wave : quand mon abonnement est-il activé ?</summary>
-        <div class="detail"><p>Si vous avez payé avec le bouton <b>Payer avec Wave</b> de l’appli : revenez simplement dans BandTalk, l’abonnement s’active tout seul en quelques secondes. Si vous avez payé par transfert au numéro Wave : dans <b>Compte › Abonnement</b>, saisissez l’identifiant de la transaction ; l’activation se fait après vérification, en général en moins de 24 h.</p></div>
-      </details>
-      <details>
-        <summary>Et si mon abonnement se termine pendant un concert ?</summary>
-        <div class="detail"><p>Une session déjà ouverte continue normalement. L’abonnement ne concerne que la <b>création</b> de nouvelles sessions. BandTalk vous prévient 3 jours avant la fin.</p></div>
-      </details>
-      <details>
-        <summary>Pourquoi BandTalk n’est-il pas sur le Play Store ?</summary>
-        <div class="detail"><p>Pour l’instant, BandTalk est distribué directement sur ce site. C’est pourquoi Android demande d’autoriser l’installation (voir « Télécharger »). Téléchargez BandTalk uniquement depuis ce site.</p></div>
-      </details>
-      <details>
-        <summary>Et sur iPhone ?</summary>
-        <div class="detail"><p>BandTalk fonctionne pour l’instant uniquement sur Android.</p></div>
-      </details>
-      <details>
-        <summary>Quelles données sont collectées ?</summary>
-        <div class="detail"><p>Votre compte (nom, email, téléphone), des statistiques d’utilisation (fréquence, durée, sessions créées) et, seulement si vous l’acceptez, votre ville. Votre position exacte, vos conversations et vos enregistrements ne sont jamais enregistrés par BandTalk. Tout est expliqué dans la <a href="confidentialite.html">politique de confidentialité</a>.</p></div>
-      </details>
+  </div>
+</section>
+
+<!-- ======================= APPEL FINAL ======================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final reveal">
+      <p class="eyebrow">Prêts à monter sur scène ?</p>
+      <h2>Votre groupe, enfin sur la même longueur d’onde.</h2>
+      <p>Téléchargez BandTalk, faites vos 2 sessions d’essai gratuites, et jouez ensemble dès ce soir.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#telecharger">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+          Télécharger BandTalk
+        </a>
+        <a class="btn btn-ghost" href="https://wa.me/2250797361516" style="background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.24)">Une question ? WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -408,19 +611,20 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="#">
-      <img class="logo" src="assets/icone-192.png" alt="" width="34" height="34">
+      <img class="logo" src="assets/icone-192.png" alt="" width="36" height="36">
       BandTalk
     </a>
     <nav aria-label="Liens">
+      <a href="#tutoriel">Tutoriel</a>
       <a href="#telecharger">Télécharger</a>
       <a href="#tarifs">Tarifs</a>
-      <a href="#guide">Guide</a>
+      <a href="#createur">Le créateur</a>
       <a href="confidentialite.html">Confidentialité</a>
       <a id="contact-mail" href="#" hidden>Contact</a>
       <a id="contact-wa" href="#" hidden>WhatsApp</a>
     </nav>
-    <p>© <span id="year">2026</span> BandTalk · Une appli créée par <a href="https://jesimel9.github.io/">Jesimel</a> · Fait en Côte d’Ivoire</p>
-    <button class="theme-toggle" type="button" id="theme">Mode jour / nuit</button>
+    <p>© <span id="year">2026</span> BandTalk · Une appli créée par <a href="#createur">Jesimel</a> (Yao Kouassi Jean Jesimel) · Fait en Côte d’Ivoire</p>
+    <p style="font-size:0.82rem">Photos d’illustration : <a href="https://unsplash.com/fr/licence">Unsplash</a>. Captures d’écran : BandTalk <span data-bt="version">1.0.5</span>.</p>
   </div>
 </footer>
 
