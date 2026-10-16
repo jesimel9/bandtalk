@@ -21,6 +21,19 @@
       : null,
     wave: c.numeroWave ? phone(c.numeroWave) : null,
   };
+  // Promotion : prix barré + date de fin tant qu'elle dure ; ensuite, le vrai prix seul.
+  var finPromo = Date.parse(c.promoFin || '');
+  var promo = !isNaN(finPromo) && Date.now() <= finPromo && c.prixNormalFcfa > c.prixFcfa;
+  if (!isNaN(finPromo) && !promo && c.prixNormalFcfa) values.prix = fcfa(c.prixNormalFcfa);
+  if (promo) {
+    var moisPromo = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    var dp = new Date(finPromo);
+    values['prix-normal'] = fcfa(c.prixNormalFcfa);
+    values['promo-remise'] = '-' + Math.round((1 - c.prixFcfa / c.prixNormalFcfa) * 100) + ' %';
+    values['promo-fin'] = dp.getUTCDate() + ' ' + moisPromo[dp.getUTCMonth()] + ' ' + dp.getUTCFullYear();
+    values['promo-jours'] = Math.max(0, Math.ceil((finPromo - Date.now()) / 86400000));
+  }
+  document.querySelectorAll('.promo-on').forEach(function (el) { el.hidden = !promo; });
   document.querySelectorAll('[data-bt]').forEach(function (el) {
     var v = values[el.getAttribute('data-bt')];
     if (v != null && v !== '') el.textContent = v;

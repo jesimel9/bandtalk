@@ -377,6 +377,17 @@ section { padding: clamp(64px, 10vw, 112px) 0; position: relative; }
 /* Version iPhone : interrupteur (assets/config.js › iosDisponible) */
 .ios-on[hidden], .ios-soon[hidden] { display: none !important; }
 
+/* Promotion (assets/config.js › prixNormalFcfa, promoFin) */
+.promo-on[hidden] { display: none !important; }
+.promo-badge { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 69, 58, 0.15); color: #ff8a80; font-weight: 700; font-size: 0.92rem; }
+.promo-badge i { width: 9px; height: 9px; border-radius: 50%; background: #ff453a; box-shadow: 0 0 10px #ff453a; animation: soon-pulse 1.8s ease-in-out infinite; }
+.promo-badge b { color: #fff; background: #ff453a; border-radius: 999px; padding: 1px 8px; }
+.old-price { display: block; font-size: 0.5em; font-weight: 600; color: var(--muted); text-decoration-thickness: 2px; text-decoration-color: #ff453a; }
+.promo-note { margin: 0 0 4px; padding: 12px 14px; border-radius: 14px; background: rgba(255, 69, 58, 0.1); color: var(--text); font-size: 0.95rem; }
+.promo-fact a { color: inherit; text-decoration: none; border-bottom: 1px dashed currentColor; }
+.promo-fact b { color: #ff8a80; }
+.promo-fact s { opacity: 0.75; }
+
 /* Version iPhone bientôt disponible : badge et compte à rebours */
 .soon-chip { color: inherit; text-decoration: none; border-bottom: 1px dashed currentColor; }
 .soon-badge { display: inline-flex; align-items: center; gap: 8px; margin: 4px 0 14px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 179, 64, 0.16); color: #ffcf7a; font-weight: 700; font-size: 0.92rem; }

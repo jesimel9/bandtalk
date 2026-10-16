@@ -18,6 +18,11 @@ window.BANDTALK = {
   dureeJours: 30,
   essaisGratuits: 2,
   numeroWave: '+2250797361516',
+  // Promotion : prixFcfa (ci-dessus) est le prix promo jusqu'à promoFin, puis le site
+  // affiche tout seul prixNormalFcfa. ⚠️ Le prix réellement payé vient de la base :
+  // le 1er janvier, mettez aussi « prix_fcfa » à 5000 dans Supabase › reglages.
+  prixNormalFcfa: 5000,
+  promoFin: '2026-12-31T23:59:59Z', // dernière seconde de la promo (heure d'Abidjan = UTC)
 
   // Version iPhone (web-app jesimel9.github.io/bandtalk/app).
   //   false : tout ce qui concerne l'iPhone est caché, le site annonce « Bientôt disponible »
