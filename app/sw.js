@@ -1,7 +1,7 @@
 // BandTalk pour iPhone — service worker : l'appli s'ouvre vite, même avec une connexion faible.
 // Les fichiers sont mis à jour en arrière-plan ; changer VERSION à chaque nouvelle version
 // force tous les iPhone à tout recharger d'un coup.
-const VERSION = 'bandtalk-web-1.0.0';
+const VERSION = 'bandtalk-web-1.0.1';
 
 const FICHIERS = [
   './',

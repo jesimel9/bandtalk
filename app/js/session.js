@@ -258,8 +258,23 @@ export class Session extends EventTarget {
     this._every(60, () => this._pollLevel());
     this._every(2000, () => this._refreshStats());
     if (this.isHost) this.clockOffset = 0;
+    else this._watchForHost();
     this.changed();
     return null;
+  }
+
+  /** Personne n'a créé de session Internet avec ce code (souvent : une session Wi-Fi local
+   *  d'Android, que l'iPhone ne peut pas rejoindre). On le dit au lieu d'attendre dans le vide. */
+  _watchForHost() {
+    clearTimeout(this._hostTimer);
+    this._hostTimer = setTimeout(() => {
+      if (!this.inSession || this._leaving) return;
+      if ([...this.peers.values()].some((p) => p.isHost)) return;
+      this.leave(
+        'Aucune session Internet avec ce code. Sur iPhone, BandTalk ne peut rejoindre que les sessions « 4G / 5G » : ' +
+          'demandez au chef de créer une session 4G / 5G (même si tout le monde est sur le même Wi-Fi), puis tapez le nouveau code.',
+      );
+    }, 15000);
   }
 
   async _createMic(AgoraRTC) {
@@ -399,6 +414,7 @@ export class Session extends EventTarget {
   async _teardown() {
     for (const t of this._timers) clearInterval(t);
     for (const t of this._countTimers) clearTimeout(t);
+    clearTimeout(this._hostTimer);
     clearTimeout(this._overlayTimer);
     clearTimeout(this._beatTimer);
     clearTimeout(this._bpmDebounce);

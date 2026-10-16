@@ -278,7 +278,7 @@ function renderHome() {
     <div class="card">
       <h2>Sur iPhone : mode Internet</h2>
       <p class="soft" style="font-size:15px">Chaque téléphone a besoin d’Internet : 4G, 5G ou un Wi-Fi connecté. Les musiciens sur Android peuvent rejoindre votre session, et vous la leur.</p>
-      <p class="soft" style="font-size:15px;margin:0">Le mode Wi-Fi local sans Internet est réservé à l’appli Android.</p>
+      <p class="soft" style="font-size:15px;margin:0">Le mode Wi-Fi local sans Internet est réservé à l’appli Android : dès qu’un musicien a un iPhone, le chef crée une session <b>« 4G / 5G »</b>, même si tout le monde est sur le même Wi-Fi.</p>
     </div>
     ${isIOS && !isStandalone ? `
       <div class="card"><strong>Installez BandTalk sur l’écran d’accueil</strong>
@@ -562,6 +562,7 @@ function openJoin(prefill = '') {
   openSheet(`
     <h2>Rejoindre une session</h2>
     <p class="lead">Tapez le code à 6 chiffres du chef, ou scannez son QR code.</p>
+    <p class="note" style="font-size:14px">Sur iPhone, le chef doit créer une session <b>« 4G / 5G »</b>. Les sessions <b>Wi-Fi local</b> d’Android ne sont pas joignables depuis un iPhone.</p>
     <input class="code-input" id="join-code" inputmode="numeric" pattern="[0-9]*" maxlength="7" autocomplete="one-time-code" placeholder="000000" value="${esc(prefill)}" aria-label="Code de la session">
     <p class="form-msg" id="join-msg"></p>
     ${trialNote() ? `<p class="soft center-text" style="font-size:14px">${trialNote()}</p>` : ''}
@@ -1067,7 +1068,7 @@ function wireGlobal() {
     $('#cue-overlay').hidden = true;
     $('#autoplay').hidden = true;
     route();
-    if (e.detail) toast(e.detail, 6000);
+    if (e.detail) toast(e.detail, 10000);
     refreshAccess();
   });
 

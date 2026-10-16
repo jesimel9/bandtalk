@@ -1,7 +1,7 @@
 // Réglages de la version iPhone (web-app) de BandTalk.
 // Mêmes valeurs que lib/config/backend_config.dart dans l'appli Android.
 
-export const VERSION = '1.0.0';
+export const VERSION = '1.0.1';
 
 export const SUPABASE_URL = 'https://uoarafoznwtoxjkftngf.supabase.co';
 // Clé « publishable » : publique par nature (jamais la clé secrète ici).
