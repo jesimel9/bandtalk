@@ -72,6 +72,33 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  // Version iPhone : montrée (iosDisponible: true) ou annoncée avec un compte à rebours.
+  var ios = c.iosDisponible === true;
+  document.querySelectorAll('.ios-on').forEach(function (el) { el.hidden = !ios; });
+  document.querySelectorAll('.ios-soon').forEach(function (el) { el.hidden = ios; });
+  var lancement = Date.parse(c.iosDate || '');
+  if (!isNaN(lancement)) {
+    var mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    var d = new Date(lancement);
+    var texte = d.getUTCDate() + ' ' + mois[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+    document.querySelectorAll('[data-bt="ios-date"]').forEach(function (el) { el.textContent = texte; });
+  }
+  var comptes = document.querySelectorAll('[data-countdown]');
+  if (!ios && comptes.length && !isNaN(lancement)) {
+    var deux = function (n) { return (n < 10 ? '0' : '') + n; };
+    var tic = function () {
+      var s = Math.max(0, Math.floor((lancement - Date.now()) / 1000));
+      var v = { j: Math.floor(s / 86400), h: deux(Math.floor((s % 86400) / 3600)), m: deux(Math.floor((s % 3600) / 60)), s: deux(s % 60) };
+      comptes.forEach(function (box) {
+        ['j', 'h', 'm', 's'].forEach(function (k) { var e = box.querySelector('[data-cd="' + k + '"]'); if (e) e.textContent = v[k]; });
+        box.classList.toggle('fini', s === 0);
+      });
+      document.querySelectorAll('[data-cd="jours"]').forEach(function (e) { e.textContent = v.j; });
+    };
+    tic();
+    setInterval(tic, 1000);
+  }
+
   // Mode jour / nuit (mémorisé sur cet appareil seulement ; appliqué dès le <head>).
   var root = document.documentElement;
   var tg = document.getElementById('theme');
@@ -86,7 +113,7 @@
   }
 
   // Tutoriel : onglets accessibles (clic, flèches, Début, Fin).
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]')).filter(function (t) { return !t.hidden; });
   var select = function (tab, focus) {
     tabs.forEach(function (t) {
       var on = t === tab;
@@ -113,7 +140,7 @@
   var openFromHash = function () {
     if (location.hash.indexOf('#tutoriel-') !== 0) return;
     var direct = document.getElementById('tab-' + location.hash.replace('#tutoriel-', ''));
-    if (!direct) return;
+    if (!direct || direct.hidden) return;
     select(direct, false);
     var sec = document.getElementById('tutoriel');
     if (sec) sec.scrollIntoView();

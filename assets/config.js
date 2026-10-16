@@ -19,6 +19,13 @@ window.BANDTALK = {
   essaisGratuits: 2,
   numeroWave: '+2250797361516',
 
+  // Version iPhone (web-app jesimel9.github.io/bandtalk/app).
+  //   false : tout ce qui concerne l'iPhone est caché, le site annonce « Bientôt disponible »
+  //           avec un compte à rebours jusqu'à iosDate ;
+  //   true  : le site montre l'installation sur iPhone (bouton, tutoriel, QR code, FAQ).
+  iosDisponible: false,
+  iosDate: '2027-01-16T10:00:00Z', // date de lancement prévue (heure d'Abidjan = UTC)
+
   // Contact affiché sur le site. Vide = ligne masquée.
   contactEmail: '',      // ex. 'contact@bandtalk.ci'
   contactWhatsapp: '+2250797361516',
