@@ -1,7 +1,7 @@
 // BandTalk pour iPhone — service worker : l'appli s'ouvre vite, même avec une connexion faible.
-// Les fichiers sont mis à jour en arrière-plan ; changer VERSION à chaque nouvelle version
-// force tous les iPhone à tout recharger d'un coup.
-const VERSION = 'bandtalk-web-1.0.1';
+// Le code est relu sur le réseau à chaque ouverture ; changer VERSION à chaque nouvelle version
+// recharge en plus les applis déjà ouvertes sur tous les iPhone.
+const VERSION = 'bandtalk-web-1.0.2';
 
 const FICHIERS = [
   './',
@@ -41,7 +41,8 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(VERSION)
-      .then((cache) => cache.addAll(FICHIERS))
+      // « reload » : jamais la copie gardée par le navigateur ou par GitHub (jusqu'à 10 min).
+      .then((cache) => cache.addAll(FICHIERS.map((f) => new Request(f, { cache: 'reload' }))))
       .then(() => self.skipWaiting()),
   );
 });
@@ -61,28 +62,32 @@ self.addEventListener('fetch', (event) => {
   // Base de données, Agora, Wave… : jamais mis en cache.
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
 
-  // Page d'accueil : réseau d'abord (nouvelle version), copie en cache si pas de réseau.
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          const copy = res.clone();
-          caches.open(VERSION).then((c) => c.put('index.html', copy));
-          return res;
-        })
-        .catch(() => caches.match('index.html')),
-    );
+  // Bibliothèques, sons, polices, icônes : leur nom ne change jamais pour un même contenu,
+  // la copie en cache suffit (ouverture rapide, même en 4G faible).
+  if (/\/(vendor|sons|polices|icones)\//.test(url.pathname)) {
+    event.respondWith(caches.match(req, { ignoreSearch: true }).then((hit) => hit ?? fetch(req)));
     return;
   }
 
-  // Fichiers de l'appli : la copie en cache tout de suite (rapide), mise à jour en arrière-plan
-  // pour la prochaine ouverture.
-  const reseau = caches.open(VERSION).then((cache) =>
-    fetch(req).then((res) => {
-      if (res.ok) cache.put(req, res.clone());
-      return res;
-    }),
-  );
-  event.waitUntil(reseau.catch(() => {}));
-  event.respondWith(caches.match(req, { ignoreSearch: true }).then((hit) => hit ?? reseau));
+  // Page, code et style de l'appli : TOUJOURS la dernière version publiée quand il y a du réseau
+  // (les iPhone sont à jour dès l'ouverture, sans rien faire). Sans réseau, ou si le réseau met
+  // plus de 3 s à répondre, la copie en cache prend le relais.
+  event.respondWith(reseauDabord(req, req.mode === 'navigate' ? 'index.html' : req));
 });
+
+async function reseauDabord(req, cle) {
+  const cache = await caches.open(VERSION);
+  try {
+    const res = await Promise.race([
+      // Revalidation : réponse « inchangé » très légère. Une requête de page ne peut pas être
+      // modifiée telle quelle : on repart de son adresse.
+      fetch(req.mode === 'navigate' ? req.url : req, { cache: 'no-cache' }),
+      new Promise((_, refus) => setTimeout(() => refus(new Error('réseau lent')), 3000)),
+    ]);
+    if (res.ok) cache.put(cle, res.clone());
+    return res;
+  } catch {
+    const copie = await cache.match(cle, { ignoreSearch: true });
+    return copie ?? fetch(req);
+  }
+}

@@ -1099,15 +1099,47 @@ function wireGlobal() {
   });
 }
 
+/** Mises à jour automatiques sur tous les iPhone :
+ *  - à chaque retour dans l'appli et toutes les 30 min, on demande s'il existe une nouvelle version ;
+ *  - dès qu'elle est installée, l'appli se recharge seule, sauf pendant une session Live
+ *    (elle se recharge alors quelques secondes après la fin de la session). */
+let updateWaiting = false;
+
+function reloadForUpdate() {
+  if (session.inSession) {
+    updateWaiting = true;
+    return;
+  }
+  location.reload();
+}
+
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  navigator.serviceWorker
+    .register('sw.js', { updateViaCache: 'none' })
+    .then((reg) => {
+      const check = () => reg.update().catch(() => {});
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') check();
+      });
+      setInterval(check, 30 * 60 * 1000);
+    })
+    .catch(() => {});
+  // Première installation : pas de rechargement (rien à remplacer). Les suivantes : rechargement.
+  let hadController = !!navigator.serviceWorker.controller;
   let reloaded = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    // Nouvelle version installée : rechargée tout de suite, sauf pendant une session.
-    if (reloaded || session.inSession) return;
+    if (!hadController) {
+      hadController = true;
+      return;
+    }
+    if (reloaded) return;
     reloaded = true;
-    location.reload();
+    reloadForUpdate();
+  });
+  session.addEventListener('ended', () => {
+    // Mise à jour arrivée pendant la session : appliquée une fois le message de fin lu.
+    if (updateWaiting) setTimeout(() => !session.inSession && location.reload(), 8000);
   });
 }
 
