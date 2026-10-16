@@ -275,8 +275,9 @@ section { padding: clamp(64px, 10vw, 112px) 0; position: relative; }
 .tab[aria-selected="true"] { background: #30d158; color: var(--on-brand); box-shadow: 0 6px 18px var(--glow); }
 .tab[data-net="4g"][aria-selected="true"] { background: #0a84ff; color: #fff; box-shadow: 0 6px 18px rgba(10, 132, 255, 0.35); }
 .no-js .tabs { display: none; }
-@media (max-width: 560px) {
-  .tabs { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); border-radius: 20px; }
+.tab[data-net="ios"][aria-selected="true"] { background: var(--text); color: var(--bg); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); }
+@media (max-width: 720px) {
+  .tabs { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); border-radius: 20px; }
   .tab { flex-direction: column; justify-content: center; gap: 4px; min-height: 62px; padding: 6px 4px; border-radius: 15px; white-space: normal; text-align: center; font-size: 0.86rem; line-height: 1.15; }
 }
 .tab-panel + .tab-panel { margin-top: 56px; }
@@ -293,6 +294,93 @@ section { padding: clamp(64px, 10vw, 112px) 0; position: relative; }
   background: #30d158; color: var(--on-brand); font: 800 0.92rem/1 Inter, sans-serif; letter-spacing: 0;
 }
 .tab-panel[data-net="4g"] .shot h4::before { background: #0a84ff; color: #fff; }
+.tab-panel[data-net="ios"] .shot h4::before { background: var(--text); color: var(--bg); }
+.tab-panel[data-net="ios"] .callout svg { color: var(--text); }
+
+/* ------------------------------------------------------------------ écrans iPhone dessinés (tutoriel iPhone) */
+.shot .phone { container-type: inline-size; }
+.ios {
+  --ios-bg: #f2f2f7; --ios-card: #fff; --ios-text: #000; --ios-soft: rgba(60, 60, 67, 0.6); --ios-sep: rgba(60, 60, 67, 0.18); --ios-blue: #0a84ff;
+  position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 28px;
+  display: flex; flex-direction: column; background: var(--ios-bg); color: var(--ios-text);
+  font: 500 11px/1.25 -apple-system, "Inter", sans-serif; font-size: 5cqw; text-align: left;
+}
+.ios svg { width: 1.5em; height: 1.5em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ios-status { display: flex; justify-content: space-between; align-items: center; padding: 1.1em 1.7em 0.6em; font-size: 0.95em; }
+.ios-bat { width: 1.9em; height: 0.9em; border-radius: 0.25em; border: 0.12em solid currentColor; opacity: 0.8; position: relative; }
+.ios-bat::after { content: ""; position: absolute; inset: 0.12em 0.5em 0.12em 0.12em; background: currentColor; border-radius: 0.1em; }
+.ios .hot { position: relative; color: var(--ios-blue); }
+.ios .hot::after {
+  content: ""; position: absolute; inset: -0.35em; border-radius: 0.8em; border: 0.2em solid #30d158;
+  box-shadow: 0 0 0 0.35em rgba(48, 209, 88, 0.25); animation: ios-pulse 1.6s ease-in-out infinite; pointer-events: none;
+}
+@keyframes ios-pulse { 50% { box-shadow: 0 0 0 0.7em rgba(48, 209, 88, 0.05); } }
+
+/* 1. Safari */
+.ios-page { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5em; padding: 2.2em 1.6em 0; background: #000; color: #fff; text-align: center; }
+.ios-page img { width: 3.6em; height: 3.6em; border-radius: 0.9em; }
+.ios-page strong { font-size: 1.5em; font-weight: 800; }
+.ios-page span { font-size: 0.85em; opacity: 0.7; margin-bottom: 0.8em; }
+.ios-line { display: block; width: 100%; height: 2.6em; border-radius: 0.7em; background: #1c1c1e; }
+.ios-line.short { width: 70%; align-self: flex-start; }
+.ios-bar { background: rgba(245, 245, 247, 0.96); border-top: 1px solid var(--ios-sep); padding: 0.7em 0.9em 1.3em; }
+.ios-url { display: flex; align-items: center; justify-content: center; gap: 0.3em; padding: 0.6em; border-radius: 0.9em; background: rgba(118, 118, 128, 0.14); font-size: 0.95em; }
+.ios-url svg { width: 1em; height: 1em; }
+.ios-tools { display: flex; justify-content: space-between; align-items: center; padding: 0.8em 0.4em 0; color: var(--ios-blue); }
+.ios-tools .off { opacity: 0.3; }
+.ios-tools .hot { display: grid; place-items: center; }
+
+/* 2. Menu Partager */
+.ios-dimmed { background: #3a3a3c; color: #fff; }
+.ios-sheet { margin-top: auto; background: var(--ios-bg); color: var(--ios-text); border-radius: 1.2em 1.2em 0 0; padding: 1em 0.9em 1.4em; }
+.ios-sheet-head { display: flex; align-items: center; gap: 0.6em; padding-bottom: 0.8em; border-bottom: 1px solid var(--ios-sep); }
+.ios-sheet-head img { width: 2.4em; height: 2.4em; border-radius: 0.6em; }
+.ios-sheet-head b { display: block; font-size: 0.95em; }
+.ios-sheet-head small { color: var(--ios-soft); font-size: 0.8em; }
+.ios-apps { display: flex; justify-content: space-between; padding: 0.9em 0.3em; }
+.ios-apps i { width: 2.7em; height: 2.7em; border-radius: 0.7em; background: linear-gradient(160deg, #c7c7cc, #8e8e93); }
+.ios-apps i:nth-child(2) { background: linear-gradient(160deg, #6fe08f, #28b35a); }
+.ios-apps i:nth-child(3) { background: linear-gradient(160deg, #7ab8ff, #1a73e8); }
+.ios-actions { list-style: none; margin: 0; padding: 0; background: var(--ios-card); border-radius: 0.9em; }
+.ios-actions li { display: flex; justify-content: space-between; align-items: center; padding: 0.75em 0.9em; border-bottom: 1px solid var(--ios-sep); font-size: 0.92em; }
+.ios-actions li:last-child { border-bottom: 0; }
+.ios-actions li.hot { color: var(--ios-text); font-weight: 700; }
+
+/* 3. Ajouter à l'écran d'accueil */
+.ios-nav { display: flex; justify-content: space-between; align-items: center; gap: 0.4em; padding: 0.7em 1em; font-size: 0.85em; color: var(--ios-blue); }
+.ios-nav b { color: var(--ios-text); font-size: 0.95em; text-align: center; }
+.ios-nav .hot { font-weight: 700; padding: 0 0.2em; }
+.ios-card { display: flex; gap: 0.8em; align-items: center; margin: 0.6em 0.9em; padding: 0.8em; border-radius: 0.9em; background: var(--ios-card); }
+.ios-card img { width: 3.4em; height: 3.4em; border-radius: 0.8em; }
+.ios-card div { flex: 1; min-width: 0; }
+.ios-field { display: block; padding-bottom: 0.3em; margin-bottom: 0.3em; border-bottom: 1px solid var(--ios-sep); font-size: 1.05em; }
+.ios-card small { color: var(--ios-soft); font-size: 0.8em; }
+.ios .ios-note { margin: 0.4em 1.4em; color: var(--ios-soft); font-size: 0.78em; line-height: 1.3; }
+.ios-kb { margin-top: auto; display: grid; gap: 0.5em; padding: 0.8em 0.6em 1.6em; background: #d1d3d9; }
+.ios-kb i { display: block; height: 2.2em; border-radius: 0.4em; background: repeating-linear-gradient(90deg, #fff 0 8.6%, transparent 8.6% 10%); }
+.ios-kb i:nth-child(2) { margin: 0 4%; }
+.ios-kb i:last-child { background: #fff; margin: 0 22%; }
+
+/* 4. Écran d'accueil */
+.ios-home { background: linear-gradient(170deg, #1b3a5c 0%, #3a2a6e 55%, #0d1b2a 100%); color: #fff; }
+.ios-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3em 0.9em; padding: 1.6em 1.3em; }
+.ios-grid i { aspect-ratio: 1; border-radius: 0.85em; background: rgba(255, 255, 255, 0.22); }
+.ios-grid i:nth-child(3n) { background: rgba(255, 255, 255, 0.32); }
+.ios-grid i:nth-child(4n+1) { background: rgba(255, 255, 255, 0.15); }
+.ios .ios-app { display: flex; flex-direction: column; align-items: center; gap: 0.3em; color: #fff; }
+.ios-app img { width: 100%; aspect-ratio: 1; height: auto; border-radius: 0.85em; }
+.ios-app em { font-style: normal; font-size: 0.7em; }
+.ios-home .hot::after { inset: -0.4em -0.4em 1.1em; border-radius: 1.1em; }
+.ios-dock { margin: auto 0.7em 0.8em; display: flex; justify-content: space-around; padding: 0.8em; border-radius: 1.6em; background: rgba(255, 255, 255, 0.2); }
+.ios-dock i { width: 2.9em; height: 2.9em; border-radius: 0.8em; background: rgba(255, 255, 255, 0.3); }
+
+/* QR code de la carte iPhone */
+.qr-box { display: flex; gap: 16px; align-items: center; margin: -4px 0 22px; }
+.qr-code { flex: none; width: 112px; height: 112px; padding: 8px; border-radius: 14px; background: #fff; }
+.qr-code svg { display: block; width: 100%; height: 100%; }
+.qr-box p { margin: 0; font-size: 0.92rem; color: #b8c5c0; }
+.qr-box b { color: #e6efe9; }
+.dl-tuto { display: inline-block; margin-top: 18px; font-weight: 700; color: #6ff094; }
 .shot p { color: var(--muted); font-size: 0.96rem; margin: 0; }
 .kbd { display: inline-block; padding: 1px 8px; border-radius: 7px; background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line-2); font-weight: 650; font-size: 0.92em; color: var(--text); white-space: nowrap; }
 .callout { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 18px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); margin-bottom: 32px; max-width: 860px; }

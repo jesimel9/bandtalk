@@ -108,14 +108,18 @@
       if (j >= 0) { e.preventDefault(); select(tabs[j], true); }
     });
   });
-  // Lien direct vers un onglet : …#tutoriel-wifi ou …#tutoriel-4g
-  var h = location.hash.replace('#tutoriel-', '');
-  var direct = document.getElementById('tab-' + h);
-  if (direct && location.hash.indexOf('#tutoriel-') === 0) {
+  // Lien direct vers un onglet : …#tutoriel-wifi, …#tutoriel-4g ou …#tutoriel-iphone
+  // (à l'ouverture de la page, et quand on touche un lien de la page).
+  var openFromHash = function () {
+    if (location.hash.indexOf('#tutoriel-') !== 0) return;
+    var direct = document.getElementById('tab-' + location.hash.replace('#tutoriel-', ''));
+    if (!direct) return;
     select(direct, false);
     var sec = document.getElementById('tutoriel');
     if (sec) sec.scrollIntoView();
-  }
+  };
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 
   // Apparition douce des blocs au défilement (désactivée si « réduire les animations »).
   var items = document.querySelectorAll('.reveal');
