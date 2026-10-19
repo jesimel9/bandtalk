@@ -8,40 +8,117 @@
     var d = m[2];
     return '+' + m[1] + ' ' + d.slice(0, 2) + ' ' + d.slice(2, 4) + ' ' + d.slice(4, 6) + ' ' + d.slice(6, 8) + ' ' + d.slice(8);
   };
-  var values = {
-    version: c.version,
-    taille: c.apkSizeMo,
-    sha256: c.sha256,
-    'android-min': c.androidMin ? c.androidMin + ' ou plus' : null,
-    prix: c.prixFcfa != null ? fcfa(c.prixFcfa) : null,
-    duree: c.dureeJours,
-    essais: c.essaisGratuits,
-    'essais-texte': c.essaisGratuits != null
-      ? c.essaisGratuits + ' session' + (c.essaisGratuits > 1 ? 's' : '') + ' gratuite' + (c.essaisGratuits > 1 ? 's' : '')
-      : null,
-    wave: c.numeroWave ? phone(c.numeroWave) : null,
+  var httpsOk = function (u) { return typeof u === 'string' && /^https:\/\/[^\s<>"]+$/.test(u); };
+  var titre = document.getElementById('titre-site');
+  var accroche = document.getElementById('accroche');
+  // Texte d'origine gardé pour y revenir si l'administrateur vide le champ.
+  var original = function (el) { return el ? { html: el.innerHTML, change: false } : null; };
+  var titreOrigine = original(titre);
+  var accrocheOrigine = original(accroche);
+  var remplacer = function (el, origine, texte) {
+    if (!el) return;
+    if (texte) { el.textContent = texte; origine.change = true; }
+    else if (origine.change) { el.innerHTML = origine.html; origine.change = false; }
   };
-  // Promotion : prix barré + date de fin tant qu'elle dure ; ensuite, le vrai prix seul.
-  var finPromo = Date.parse(c.promoFin || '');
-  var promo = !isNaN(finPromo) && Date.now() <= finPromo && c.prixNormalFcfa > c.prixFcfa;
-  if (!isNaN(finPromo) && !promo && c.prixNormalFcfa) values.prix = fcfa(c.prixNormalFcfa);
-  if (promo) {
-    var moisPromo = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-    var dp = new Date(finPromo);
-    values['prix-normal'] = fcfa(c.prixNormalFcfa);
-    values['promo-remise'] = '-' + Math.round((1 - c.prixFcfa / c.prixNormalFcfa) * 100) + ' %';
-    values['promo-fin'] = dp.getUTCDate() + ' ' + moisPromo[dp.getUTCMonth()] + ' ' + dp.getUTCFullYear();
-    values['promo-jours'] = Math.max(0, Math.ceil((finPromo - Date.now()) / 86400000));
-  }
-  document.querySelectorAll('.promo-on').forEach(function (el) { el.hidden = !promo; });
-  document.querySelectorAll('[data-bt]').forEach(function (el) {
-    var v = values[el.getAttribute('data-bt')];
-    if (v != null && v !== '') el.textContent = v;
-  });
 
-  // Empreinte SHA-256 : masquée si absente.
-  if (!c.sha256) {
-    ['hash-dt', 'hash-dd'].forEach(function (id) { var e = document.getElementById(id); if (e) e.hidden = true; });
+  // Affiche toutes les informations à partir de « c ». Appelée une première fois avec
+  // config.js, puis de nouveau avec les informations de la base (modifiées dans l'appli).
+  var render = function () {
+    var values = {
+      version: c.version,
+      taille: c.apkSizeMo,
+      sha256: c.sha256,
+      'android-min': c.androidMin ? c.androidMin + ' ou plus' : null,
+      prix: c.prixFcfa != null ? fcfa(c.prixFcfa) : null,
+      duree: c.dureeJours,
+      essais: c.essaisGratuits,
+      'essais-texte': c.essaisGratuits != null
+        ? c.essaisGratuits + ' session' + (c.essaisGratuits > 1 ? 's' : '') + ' gratuite' + (c.essaisGratuits > 1 ? 's' : '')
+        : null,
+      wave: c.numeroWave ? phone(c.numeroWave) : null,
+      'promo-titre': c.promoTitre,
+    };
+    // Promotion : prix barré + date de fin tant qu'elle dure ; ensuite, le vrai prix seul.
+    var finPromo = Date.parse(c.promoFin || '');
+    var promo = !isNaN(finPromo) && Date.now() <= finPromo && c.prixNormalFcfa > c.prixFcfa;
+    if (!isNaN(finPromo) && !promo && c.prixNormalFcfa) values.prix = fcfa(c.prixNormalFcfa);
+    if (promo) {
+      var moisPromo = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+      var dp = new Date(finPromo);
+      values['prix-normal'] = fcfa(c.prixNormalFcfa);
+      values['promo-remise'] = '-' + Math.round((1 - c.prixFcfa / c.prixNormalFcfa) * 100) + ' %';
+      values['promo-fin'] = dp.getUTCDate() + ' ' + moisPromo[dp.getUTCMonth()] + ' ' + dp.getUTCFullYear();
+      values['promo-jours'] = Math.max(0, Math.ceil((finPromo - Date.now()) / 86400000));
+    }
+    document.querySelectorAll('.promo-on').forEach(function (el) { el.hidden = !promo; });
+    document.querySelectorAll('[data-bt]').forEach(function (el) {
+      var v = values[el.getAttribute('data-bt')];
+      if (v != null && v !== '') el.textContent = v;
+    });
+
+    // Empreinte SHA-256 : masquée si absente.
+    ['hash-dt', 'hash-dd'].forEach(function (id) { var e = document.getElementById(id); if (e) e.hidden = !c.sha256; });
+
+    // Annonce en haut de la page, grand titre et accroche (textes seuls, jamais de HTML).
+    var bandeau = document.getElementById('annonce');
+    var bandeauTexte = document.getElementById('annonce-texte');
+    if (bandeau && bandeauTexte) {
+      bandeauTexte.textContent = c.annonce || '';
+      bandeau.hidden = !c.annonce;
+    }
+    remplacer(titre, titreOrigine, c.titre);
+    remplacer(accroche, accrocheOrigine, c.accroche);
+
+    // Bouton « Acheter BandTalk PRO » (boutique en ligne).
+    var buy = document.getElementById('buy-btn');
+    var buyOk = httpsOk(c.lienAchat);
+    if (buy) { if (buyOk) buy.href = c.lienAchat; buy.hidden = !buyOk; }
+    var buyNote = document.getElementById('buy-note');
+    if (buyNote) buyNote.hidden = !buyOk;
+
+    // Contact (masqué si non renseigné).
+    var mail = document.getElementById('contact-mail');
+    var mailOk = /^[^\s@<>"]+@[^\s@<>"]+\.[a-zA-Z]{2,}$/.test(c.contactEmail || '');
+    if (mail) { if (mailOk) mail.href = 'mailto:' + c.contactEmail; mail.hidden = !mailOk; }
+    var wa = document.getElementById('contact-wa');
+    var waNum = String(c.contactWhatsapp || '').replace(/\D/g, '');
+    if (wa) { if (waNum.length >= 8) wa.href = 'https://wa.me/' + waNum; wa.hidden = waNum.length < 8; }
+  };
+  render();
+
+  // Informations modifiées par l'administrateur dans l'appli (Administration › Réglages ›
+  // Site web), lues dans la base à chaque ouverture. Sans réponse, config.js reste affiché.
+  if (c.supabaseUrl && c.supabaseKey && window.fetch) {
+    var ctl = window.AbortController ? new AbortController() : null;
+    if (ctl) setTimeout(function () { ctl.abort(); }, 6000);
+    fetch(c.supabaseUrl + '/rest/v1/reglages?select=cle,valeur&or=(cle.like.site_*,cle.in.(prix_fcfa,duree_abonnement_jours,sessions_essai,numero_wave))', {
+      headers: { apikey: c.supabaseKey },
+      cache: 'no-store',
+      signal: ctl ? ctl.signal : undefined,
+    })
+      .then(function (res) { return res.ok ? res.json() : []; })
+      .then(function (rows) {
+        if (!Array.isArray(rows) || !rows.length) return;
+        var r = {};
+        rows.forEach(function (x) { if (x && typeof x.cle === 'string') r[x.cle] = String(x.valeur == null ? '' : x.valeur).trim(); });
+        var has = function (k) { return Object.prototype.hasOwnProperty.call(r, k); };
+        var num = function (k) { var n = parseInt(r[k], 10); return isNaN(n) ? null : n; };
+        if (num('prix_fcfa') != null) c.prixFcfa = num('prix_fcfa');
+        if (num('duree_abonnement_jours') != null) c.dureeJours = num('duree_abonnement_jours');
+        if (num('sessions_essai') != null) c.essaisGratuits = num('sessions_essai');
+        if (r.numero_wave) c.numeroWave = r.numero_wave;
+        if (has('site_annonce')) c.annonce = r.site_annonce;
+        if (has('site_titre')) c.titre = r.site_titre;
+        if (has('site_accroche')) c.accroche = r.site_accroche;
+        if (has('site_lien_achat')) c.lienAchat = r.site_lien_achat;
+        if (has('site_email')) c.contactEmail = r.site_email;
+        if (has('site_whatsapp')) c.contactWhatsapp = r.site_whatsapp;
+        if (has('site_promo_titre') && r.site_promo_titre) c.promoTitre = r.site_promo_titre;
+        if (has('site_prix_normal')) c.prixNormalFcfa = num('site_prix_normal');
+        if (has('site_promo_fin')) c.promoFin = /^\d{4}-\d{2}-\d{2}$/.test(r.site_promo_fin) ? r.site_promo_fin + 'T23:59:59Z' : '';
+        render();
+      })
+      .catch(function () { /* hors ligne : on garde config.js */ });
   }
 
   // Bouton de téléchargement.
@@ -60,10 +137,11 @@
     }
   }
 
-  // Copier le numéro Wave.
+  // Copier le numéro Wave (le numéro à jour, lu au moment du clic).
   var copy = document.getElementById('copy-wave');
-  if (copy && c.numeroWave) {
+  if (copy) {
     copy.addEventListener('click', function () {
+      if (!c.numeroWave) return;
       var done = function () { copy.textContent = 'Copié ✓'; setTimeout(function () { copy.textContent = 'Copier'; }, 1800); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(c.numeroWave).then(done, done);
@@ -75,12 +153,6 @@
       }
     });
   }
-
-  // Contact (masqué si non renseigné).
-  var mail = document.getElementById('contact-mail');
-  if (mail && c.contactEmail) { mail.href = 'mailto:' + c.contactEmail; mail.hidden = false; }
-  var wa = document.getElementById('contact-wa');
-  if (wa && c.contactWhatsapp) { wa.href = 'https://wa.me/' + c.contactWhatsapp.replace(/\D/g, ''); wa.hidden = false; }
 
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();

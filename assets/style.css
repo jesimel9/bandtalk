@@ -569,3 +569,13 @@ tr:last-child td { border-bottom: 0; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ------------------------------------------------------------------ annonce et bouton d'achat
+   (textes et lien modifiables dans l'appli : Administration › Réglages › Site web) */
+.announce[hidden], .buy-btn[hidden], .buy-note[hidden] { display: none !important; }
+.announce { background: linear-gradient(90deg, rgba(48, 209, 88, 0.16), rgba(10, 132, 255, 0.14)); border-bottom: 1px solid var(--line); }
+.announce .wrap { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+.announce p { margin: 0; font-weight: 600; font-size: 0.98rem; line-height: 1.45; color: var(--text); overflow-wrap: anywhere; }
+.announce-dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.22); }
+.price .buy-btn { display: flex; width: 100%; justify-content: center; margin-top: 24px; }
+.buy-note { font-size: 14px; margin: 10px 0 0; text-align: center; }

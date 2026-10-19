@@ -1,28 +1,46 @@
 /* =====================================================================
-   RÉGLAGES DU SITE BANDTALK — le seul fichier à modifier à chaque version.
+   RÉGLAGES DU SITE BANDTALK — à modifier à chaque nouvelle version de l'APK.
+
+   Les informations marquées (*) se modifient SANS toucher à ce fichier, dans
+   l'appli : Administration › Réglages › Site web (et › Réglages pour le prix,
+   la durée, les essais et le numéro Wave). Le site les lit dans la base à chaque
+   ouverture ; les valeurs ci-dessous ne servent que si la base ne répond pas.
    ===================================================================== */
 window.BANDTALK = {
   // Version publiée et son fichier APK.
-  version: '1.0.6',
+  version: '1.0.7',
   // Lien de téléchargement. Avec GitHub Releases, ce lien pointe TOUJOURS vers la
   // dernière version (si le fichier publié s'appelle toujours « BandTalk.apk ») :
   //   https://github.com/VOTRE-COMPTE/bandtalk/releases/latest/download/BandTalk.apk
   apkUrl: 'https://github.com/jesimel9/bandtalk/releases/latest/download/BandTalk.apk',
-  apkSizeMo: 86,
+  apkSizeMo: 87,
   // Empreinte SHA-256 de l'APK (preuve que le fichier n'a pas été modifié). Vide = masquée.
-  sha256: '116e25d6102a3fe765249caaadb26ebaf946a0951f8139f4d28ba51e6924c895',
+  sha256: '79b7795837c6b4db12b6b4c574206acc1516b2fe78ba5166ea212f9133ae7d14',
   androidMin: 'Android 7',
 
-  // Abonnement (doit correspondre à la table « reglages » de la base de données).
+  // Base de données où le site lit les informations (*). Clé PUBLIQUE, lecture seule.
+  supabaseUrl: 'https://uoarafoznwtoxjkftngf.supabase.co',
+  supabaseKey: 'sb_publishable_FYQsUUsnaQZ2ArtudLsQUg_pb5rHeS6',
+
+  // Abonnement (*) — le prix réellement payé est celui de la base.
   prixFcfa: 2000,
   dureeJours: 30,
-  essaisGratuits: 2,
+  essaisGratuits: 5,
   numeroWave: '+2250797361516',
-  // Promotion : prixFcfa (ci-dessus) est le prix promo jusqu'à promoFin, puis le site
-  // affiche tout seul prixNormalFcfa. ⚠️ Le prix réellement payé vient de la base :
-  // le 1er janvier, mettez aussi « prix_fcfa » à 5000 dans Supabase › reglages.
+  // Promotion (*) : prixFcfa est le prix promo jusqu'à promoFin, puis le site affiche tout
+  // seul prixNormalFcfa. ⚠️ Le 1er janvier, mettez aussi le prix de l'abonnement à 5000
+  // dans l'appli (Administration › Réglages).
+  promoTitre: 'Promo de fin d’année',
   prixNormalFcfa: 5000,
   promoFin: '2026-12-31T23:59:59Z', // dernière seconde de la promo (heure d'Abidjan = UTC)
+
+  // Textes (*) : vide = texte d'origine de la page / pas d'annonce.
+  annonce: '',
+  titre: '',
+  accroche: '',
+
+  // Bouton « Acheter BandTalk PRO » (*) : boutique en ligne. Vide = bouton masqué.
+  lienAchat: 'https://vkxiqkax.mychariow.shop/prd_7ntyvz8a',
 
   // Version iPhone (web-app jesimel9.github.io/bandtalk/app).
   //   false : tout ce qui concerne l'iPhone est caché, le site annonce « Bientôt disponible »
@@ -31,7 +49,7 @@ window.BANDTALK = {
   iosDisponible: false,
   iosDate: '2027-01-16T10:00:00Z', // date de lancement prévue (heure d'Abidjan = UTC)
 
-  // Contact affiché sur le site. Vide = ligne masquée.
+  // Contact affiché sur le site (*). Vide = ligne masquée.
   contactEmail: '',      // ex. 'contact@bandtalk.ci'
   contactWhatsapp: '+2250797361516',
 };

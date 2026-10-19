@@ -104,6 +104,11 @@
 
 <main id="contenu">
 
+<!-- Annonce : modifiable dans l'appli (Administration › Réglages › Site web) -->
+<div class="announce" id="annonce" role="status" hidden>
+  <div class="wrap"><span class="announce-dot" aria-hidden="true"></span><p id="annonce-texte"></p></div>
+</div>
+
 <!-- ======================= HÉROS ======================= -->
 <section class="hero">
   <figure class="hero-bg">
@@ -112,8 +117,8 @@
   <div class="wrap">
     <div>
       <p class="eyebrow">Pour les musiciens, chefs d’orchestre et ingés son</p>
-      <h1>BandTalk, l’intercom de scène <span class="grad">dans votre téléphone.</span></h1>
-      <p class="lead">Parlez à tout le groupe pendant le concert, sans matériel : vos téléphones et des écouteurs suffisent. En Wi-Fi local sans Internet, ou par la 4G. Sur Android<span class="ios-on" hidden> et sur iPhone</span><span class="ios-soon">, et bientôt sur iPhone</span>.</p>
+      <h1 id="titre-site">BandTalk, l’intercom de scène <span class="grad">dans votre téléphone.</span></h1>
+      <p class="lead" id="accroche">Parlez à tout le groupe pendant le concert, sans matériel : vos téléphones et des écouteurs suffisent. En Wi-Fi local sans Internet, ou par la 4G. Sur Android<span class="ios-on" hidden> et sur iPhone</span><span class="ios-soon">, et bientôt sur iPhone</span>.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#telecharger">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
@@ -576,7 +581,7 @@
       </div>
       <div class="price pro reveal">
         <p class="eyebrow">BandTalk PRO</p>
-        <p class="promo-badge promo-on"><i></i>Promo de fin d’année <b data-bt="promo-remise">-60 %</b></p>
+        <p class="promo-badge promo-on"><i></i><span data-bt="promo-titre">Promo de fin d’année</span> <b data-bt="promo-remise">-60 %</b></p>
         <p class="amount"><s class="old-price promo-on"><span data-bt="prix-normal">5 000</span> FCFA</s> <span data-bt="prix">2 000</span> FCFA <small>/ <span data-bt="duree">30</span> jours</small></p>
         <p class="promo-note promo-on">Profitez-en dès maintenant : ce prix promo est valable jusqu’au <b data-bt="promo-fin">31 décembre 2026</b> (encore <b data-bt="promo-jours">76</b> jours). Ensuite, l’abonnement passe à <b><span data-bt="prix-normal">5 000</span> FCFA</b> / <span data-bt="duree">30</span> jours.</p>
         <p class="muted">Pour le chef d’orchestre, le leader, l’ingé son… et chaque musicien après l’essai.</p>
@@ -585,6 +590,11 @@
           <li>Jusqu’à 8 musiciens par session</li>
           <li>Créer et rejoindre des sessions sans limite</li>
         </ul>
+        <a class="btn btn-primary buy-btn" id="buy-btn" href="https://vkxiqkax.mychariow.shop/prd_7ntyvz8a" target="_blank" rel="noopener" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.2l2.1 10.6a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.2L21 8H6.1"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/></svg>
+          Acheter BandTalk PRO
+        </a>
+        <p class="muted buy-note" id="buy-note" hidden>Achat en ligne sur notre boutique (Chariow). Vous recevez ensuite les instructions pour activer votre abonnement dans l’appli.</p>
         <div class="wave-box">
           <p class="eyebrow" style="color:var(--text)">Payer avec Wave, directement dans l’appli</p>
           <ol>
