@@ -8,14 +8,14 @@
    ===================================================================== */
 window.BANDTALK = {
   // Version publiée et son fichier APK.
-  version: '1.0.16',
+  version: '1.0.17',
   // Lien de téléchargement. Avec GitHub Releases, ce lien pointe TOUJOURS vers la
   // dernière version (si le fichier publié s'appelle toujours « BandTalk.apk ») :
   //   https://github.com/VOTRE-COMPTE/bandtalk/releases/latest/download/BandTalk.apk
   apkUrl: 'https://github.com/jesimel9/bandtalk/releases/latest/download/BandTalk.apk',
   apkSizeMo: 91,
   // Empreinte SHA-256 de l'APK (preuve que le fichier n'a pas été modifié). Vide = masquée.
-  sha256: 'c9e29bffba9b7ee1a38a6b0df1eb26ae1ff353ff7dffff82ab541cd3709f6b1a',
+  sha256: 'fbd14daa3c35bc239bb1f5ba31294ce5766f786ca63a37985ba6beb7f72c9a53',
   androidMin: 'Android 7',
 
   // Base de données où le site lit les informations (*). Clé PUBLIQUE, lecture seule.
